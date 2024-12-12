@@ -1,0 +1,118 @@
+{% extends "./base.html" %}
+
+{% block titulo %} Actividades Culturales {% endblock %}
+
+{% block historial_activo %} active a-extend {% endblock %}
+
+{% block contenido %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+<div class="m-5">
+    <form method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Solicitud de club</legend>
+            <div class="mb-3 row">
+                <div class="mb-3 col-md-6">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input disabled type="text" id="nombre" class="form-control" placeholder="Nombre" value="{{ nombre }}">
+                </div>
+                <div class="col-md-6">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <input disabled type="text" id="apellidos" class="form-control" placeholder="Apellidos" value="{{ apellidos }}">
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="mb-3 col-md-6">
+                    <label for="carrera" class="form-label">Carrera</label>
+                    <input disabled type="text" id="carrera" class="form-control" placeholder="Carrera" value="{{nombre_carrera}}">
+                </div>
+                <div class="mb-3 col-md-3">
+                    <label for="matricula" class="form-label">Matrícula</label>
+                    <input disabled type="text" id="matricula" class="form-control" value="{{ matricula }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="matricula" class="form-label">Grado y Grupo</label>
+                    <input disabled type="text" id="grado" class="form-control" value="{{ nombre_grupo }}">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <div class="mb-3 col-md-4">
+                    <label for="club" class="form-label">Club</label>
+                    <select name="club" id="club" class="form-control">
+                        {% for club in clubes %}
+                            <option value="{{ club }}">{{ club }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label for="dia" class="form-label">Día a la semana</label>
+                    <select name="dia" id="dia" class="form-control">
+                        {% for dia in dias %}
+                            <option value="{{ dia }}">{{ dia }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label for="hora" class="form-label">Horas</label>
+                    <select name="hora" id="hora" class="form-control">
+                        {% for hora in horas %}
+                            <option value="{{ hora }}">{{ hora }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div> 
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </fieldset>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="solicitudModal" tabindex="-1" aria-labelledby="solicitudModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                {% if solicitud_exitosa %}
+                    <i class="fas fa-check-circle fa-5x text-success"></i>
+                    <h4 class="mt-3">¡Solicitud enviada exitosamente!</h4>
+                {% elif solicitud_exitosa is not defined %}
+                {% else %}
+                    <i class="fas fa-times-circle fa-5x text-danger"></i>
+                    <h4 class="mt-3">Hubo un problema al enviar tu solicitud.</h4>
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% if solicitud_exitosa %}
+    <script>
+        $(document).ready(function(){
+            $('#solicitudModal').modal('show');
+        });
+    </script>
+{% endif %}
+
+{% endblock %}

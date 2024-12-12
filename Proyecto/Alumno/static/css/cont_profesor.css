@@ -1,0 +1,36 @@
+ul {
+    padding-left: 0;
+}
+
+.ct {
+    overflow-y: auto;
+    overflow-x: auto;
+    padding-top: 10px ;
+    /* Ajusta el ancho para ocupar el espacio restante después de la barra lateral */
+    /* Ajusta 250px según el ancho de tu barra lateral */
+    /* Agrega un padding para que el contenido no quede pegado a los bordes */
+    box-sizing: border-box;
+    height: calc(100vh - 88px);
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table table {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.custom-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}

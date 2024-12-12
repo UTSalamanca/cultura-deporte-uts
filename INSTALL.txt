@@ -1,0 +1,36 @@
+## INSTALACIÓN Y CONFIGURACIÓN DEL PROYECTO ##
+
+1.- Clonar el repositorio
+
+2.- Una ves clonado abrimos la terminal e instalamos el entorno virtual
+* python -m venv env *
+
+3.- Activamos el entorno virtual (command prompt de la terminal)
+* .\env\Scripts\activate *
+
+4.- Instalar dependencias
+* pip install -r requirements.txt *
+
+5.- Entrar a la carpeta Proyecto 
+* cd proyecto *
+
+6.- Agregar el archivo .env con las variables de la base de datos 
+DB_HOST_SITO=
+DB_NAME_SITO=
+DB_USER_SITO=
+DB_PASS_SITO=''
+DB_PORT_SITO=
+
+DB_HOST_CYD=
+DB_NAME_CYD=
+DB_USER_CYD=
+DB_PASS_CYD=''
+DB_PORT_CYD=
+
+6.- Iniciar proyecto 
+* py manage.py runserver
+
+Solución de problemas
+- Si tienes problemas con la instalación, verifica que tengas la versión correcta de Python o Django, y que hayas instalado las dependencias correctamente. 
+Así como el driver ODBC Driver 17 for SQL Server. 
+- Si tienes problemas con la conexión a la base de datos, verifica que las variables en el archivo .env estén configuradas correctamente.

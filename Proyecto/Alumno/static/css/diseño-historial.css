@@ -1,0 +1,107 @@
+.container-puntos {
+    max-width: 1600px;
+    max-height: 50vh;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .indicador-puntos {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #180b62;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .filtro {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .dropdown-btn {
+    background-color: #180b62;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .dropdown-content label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .tabla-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+  
+  .semana {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    flex: 1 1 calc(33% - 20px); /* Ajuste responsivo */
+    min-width: 280px;
+    max-width: 30px;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #180b62;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .contenido {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .dias, .asistencias {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .dias div, .asistencias div {
+    width: 20%;
+    text-align: center;
+  }
+  

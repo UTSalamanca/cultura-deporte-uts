@@ -1,0 +1,30 @@
+<!-- PASAR FORMATO BASE (ASIDE, NAV) -->
+{% extends "./base.html" %}
+
+<!-- ESTABLECER TITULO DE LA PÁGINA -->
+{% block titulo %} Créditos actuales {% endblock %}
+
+<!-- ESTABLECE QUE ELEMENTO ESTA ACTIVO SEGÚN EL APARTADO -->
+<!-- a-extend ES PARA ELIMINAR UN ERROR AL ABRIR EL ASIDE -->
+{% block actuales_activo %} active a-extend {% endblock %}
+
+<!-- CONTENIDO PRINCIPAL -->
+{% block contenido %}
+<div class="body-calendario">
+    <div class="container-calendario">
+    <div id="clock"></div>
+    <div id="calendar"></div>
+</div>
+
+<!-- Modal actualizado -->
+<div id="attendanceModal" class="modal">
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalMessage"></p>
+    <button id="confirmAttendance">Confirmar</button>
+</div>
+</div>
+</div>
+
+{% endblock %}

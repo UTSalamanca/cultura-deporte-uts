@@ -1,0 +1,72 @@
+<!-- PASAR FORMATO BASE (ASIDE, NAV) -->
+{% extends "../base.html" %}
+
+<!-- ESTABLECER TITULO DE LA PÁGINA -->
+{% block titulo %} Taekwondo - Clubes {% endblock %}
+
+<!-- ESTABLECE QUE ELEMENTO ESTA ACTIVO SEGÚN EL APARTADO -->
+{% block historial_activo %} active a-extend {% endblock %}
+
+<!-- CONTENIDO PRINCIPAL -->
+{% block contenido %}
+<div class="wallpaper" style="background-image: url(../../../static/assets/taekwondo.jpeg);">
+    <div class="fade-wall">
+        <div class="name-wall">
+           <div class="name-club">Taekwondo</div>
+        </div> 
+    </div>
+</div>
+
+<div class="contenedor">
+    <div class="contenedor-texto">
+        El Club de Taekwondo Universitario "Fuerza y Disciplina" es un espacio respetuoso y lleno de energía donde estudiantes de todas las facultades se reúnen para practicar y aprender este arte marcial. Desde su fundación, ha crecido rápidamente, incorporando tanto a principiantes como a practicantes avanzados. Aquí, cultivamos habilidades físicas y mentales, a través de entrenamientos y competencias que promueven el autocontrol, la perseverancia y la técnica.    </div>
+  <div class="contenedor-logros">
+    <!-- Trofeos -->
+    <div class="box" id="trofeos" onclick="toggleBox('trofeos')">
+        <i class="material-icons">emoji_events</i> <!-- Icono de trofeo -->
+        <span>Trofeos</span>
+        <div class="box-content">
+            <h2>Trofeos de Futbol</h2>
+            <p>Listado de competiciones de danza ganadas:</p>
+            <ul>
+                <li>Competencia Regional de Danza - Madrid, 2021</li>
+                <li>Festival Nacional de Danza - Barcelona, 2020</li>
+                <li>Copa Internacional de Danza - París, 2019</li>
+                <li>Torneo de Danza Urbana - Berlín, 2018</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Logros -->
+    <div class="box" id="logros" onclick="toggleBox('logros')">
+        <i class="material-icons">military_tech</i> <!-- Icono de medalla -->
+        <span>Logros</span>
+        <div class="box-content">
+            <h2>Logros del Club de Futbol</h2>
+            <p>Récords alcanzados por el club de Futbol:</p>
+            <ul>
+                <li>Mayor número de competiciones ganadas en un año: 12 competiciones en 2020.</li>
+                <li>Mejor puntuación histórica en la Competencia Nacional - 98 puntos en 2021.</li>
+                <li>Récord de participación en torneos internacionales - 5 países en 2019.</li>
+                <li>Reconocimiento por excelencia artística en el Festival de Danza Contemporánea en 2020.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Competencias -->
+    <div class="box" id="competencias" onclick="toggleBox('competencias')">
+        <i class="material-icons">groups</i> <!-- Icono de grupos -->
+        <span>Competencias</span>
+        <div class="box-content">
+            <h2>Competencias</h2>
+            <p>Listado de las competencias en las que ha participado a lo largo de su carrera:</p>
+            <ul>
+                <li>Competencia de Danza Europea - Roma, 2022</li>
+                <li>Campeonato de Danza Moderna - Londres, 2020</li>
+                <li>Concurso de Danza Contemporánea - Nueva York, 2019</li>
+            </ul>
+        </div>
+    </div>
+</div>  
+</div>
+{% endblock %}

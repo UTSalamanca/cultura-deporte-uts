@@ -1,0 +1,72 @@
+{% extends "pages/base.html" %}
+
+{% block titulo %}Créditos{% endblock %}
+
+{% block creditos_activo %} active a-extend {% endblock %}
+
+{% block contenido %}
+
+
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col-md-9 ">
+                <h3 class="mb-3">Socilitudes</h3>
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>MATRICULA</th>
+                            <th>NOMBRE</th>
+                            <th>GRADO</th>
+                            <th>GRUPO</th>
+                            <th>DETALLES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td>612110393</td>
+                            <td>Angel Fernando Muñoz Castorena</td>
+                            <td>TIS</td>
+                            <td>4C</td>
+                            <td> <button class="btn btn-primary">VER</button></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td>612110393</td>
+                            <td>Bryan Rodrigo Gomez Coronado</td>
+                            <td>TIS</td>
+                            <td>2B</td>
+                            <td> <button class="btn btn-primary">VER</button></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" checked></td>
+                            <td>612110393</td>
+                            <td>Omar Lirachi Ramirez</td>
+                            <td>TIS</td>
+                            <td>3A</td>
+                            <td> <button class="btn btn-primary">VER</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+           <!-- Detalles del alumno -->
+            <div class="col-md-3 rounded-4 border">
+                <h3 class="text-center">Detalles del Alumno</h3>
+                <div class="p-4">
+                    <strong>CARTA LABORAL</strong>
+                    <p class="bg-dark p-2 text-white rounded text-center mt-2" style="opacity: 25%;">Archivo Cargado</p>
+                    
+                    <strong>INE DEL JEFE:</strong> 
+                    <p class="bg-dark p-2 text-white rounded text-center mt-2" style="opacity: 25%;">Archivo Cargado</p>
+                </div>
+                <div class="d-flex flex-column pl-4 pr-4 mb-2">
+                    <button class="btn btn-danger mb-2">CANCELAR SOLICITUD</button>
+                    <button class="btn btn-success mb-2">AGREGAR ALUMNO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+.notification {
+  position: fixed;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: none;
+}
+
+.notification .card {
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.notification .card-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.notification .card-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.notification .card-warning {
+  background-color: #ffc107;  /* Color amarillo */
+  color: white;
+}
+
+.notification .icon {
+  margin-right: 10px;
+}
