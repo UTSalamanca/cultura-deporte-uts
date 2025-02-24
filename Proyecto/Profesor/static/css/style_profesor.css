@@ -1,0 +1,41 @@
+.container-barra {
+    background-color: blue;
+    padding: 10px; 
+}
+
+.container-barra > div {
+    height: 30px; 
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+td.modificada {
+    background-color: #f0e68c; /* Amarillo claro */
+}
+
+.container-barra p {
+    margin: 0; 
+    padding: 0 15px;
+    font-weight: 500;
+}
+
+.container-barra .d-flex {
+    gap: 15px; 
+    display: flex;
+    align-items: center;
+}
+
+.dataframe {
+    text-align: center !important;
+}
+
+.dataframe thead th{
+    background-color: #d1d1d194;
+    text-align: center;
+}
+
+.navegacion > ul{
+    padding: 0;
+}

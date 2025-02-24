@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Asistencia</title>
+</head>
+<body>
+    <h1>Formulario para Generar Asistencia</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="cuatrimestre">Cuatrimestre:</label>
+        <input type="text" id="cuatrimestre" name="cuatrimestre" required><br><br>
+
+        <label for="actividad">Actividad:</label>
+        <input type="text" id="actividad" name="actividad" required><br><br>
+
+        <label for="profesor">Profesor:</label>
+        <input type="text" id="profesor" name="profesor" required><br><br>
+
+        <label for="dia">Día:</label>
+        <input type="text" id="dia" name="dia" required><br><br>
+
+        <label for="horario">Horario:</label>
+        <input type="text" id="horario" name="horario" required><br><br>
+
+        <label for="datos">Datos de alumnos (Matrícula, Nombre, Carrera, Grado, Grupo):</label><br>
+        <textarea id="datos" name="datos" rows="10" cols="50" placeholder="Ejemplo: 612210499, Juan Pérez, PIAA, 1, A" required></textarea><br><br>
+
+        <button type="submit">Generar Excel</button>
+    </form>
+</body>
+</html>

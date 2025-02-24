@@ -1,0 +1,101 @@
+<!-- PASAR FORMATO BASE (ASIDE, NAV) -->
+{% extends "pages/base.html" %}
+
+<!-- ESTABLECER TITULO DE LA PÁGINA -->
+{% block titulo %}Inicio{% endblock %}
+
+<!-- ESTABLECE QUE ELEMENTO ESTA ACTIVO SEGÚN EL APARTADO -->
+{% block inicio_activo %} active a-extend {% endblock %}
+
+<!-- CONTENIDO PRINCIPAL -->
+{% block contenido %} 
+<div class="container_inicio">
+
+    <div class="slide">
+        
+        <div class="item" style="background-image: url(../static/assets/voleybol.jpeg)">
+            <div class="fade-content">
+               <div class="content">
+                    <div class="name">Voleibol</div>
+                    <div class="des">Mejorar las habilidades técnicas y tácticas de los participantes en el voleibol, promoviendo el trabajo en equipo y habilidades blandas</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:voleibol' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>               </div> 
+            </div>
+            
+        </div>
+        <div class="item" style="background-image: url(../static/assets/basquetbol.jpeg);">
+             <div class="fade-content">
+               <div class="content">
+                <div class="name">Basquetbol</div>
+                <div class="des">Desarrollar habilidades técnicas y tácticas en el baloncesto, promoviendo el trabajo en equipo</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:basquetbol' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>             </div> 
+            </div>
+            
+        </div>
+        <div class="item" style="background-image: url(../static/assets/taekwondo.jpeg);">
+            <div class="fade-content">
+              <div class="content">
+                <div class="name">Taekwondo</div>
+                <div class="des">Introducir a los participantes en las técnicas básicas del taekwondo, promoviendo la disciplina, el autocontrol y la actividad física</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:taekwondo' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>             </div>  
+            </div>
+            
+        </div>
+        <div class="item" style="background-image: url(../static/assets/futbol.jpeg);">
+            <div class="fade-content">
+               <div class="content">
+                <div class="name">Futbol</div>
+                <div class="des">Fomentar el trabajo en equipo, la actividad física y la cohesión social a través del fútbol</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:futbol' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>
+            </div> 
+            </div> 
+        </div>
+        <div class="item" style="background-image: url(../static/assets/atletismo.jpeg);">
+            <div class="fade-content">
+                 <div class="content">
+                <div class="name">Atletismo</div>
+                <div class="des">Fomentar la actividad física y mejorar las habilidades atléticas de los participantes a través de diversas disciplinas del atletismo</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:atletismo' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>            </div>
+            </div>
+           
+        </div>
+        <div class="item" style="background-image: url(../static/assets/danza.jpeg);">
+            <div class="fade-content">
+               <div class="content">
+                <div class="name">Danza</div>
+                <div class="des">Fomentar la expresión corporal y la creatividad a través de la danza, mejorando la coordinación y la confianza en el movimiento</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:danza' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>            </div> 
+            </div>
+        </div>
+        <div class="item" style="background-image: url(../static/assets/artes.jpeg);">
+            <div class="fade-content">
+               <div class="content">
+                <div class="name">Artes</div>
+                <div class="des">Desarrollar la creatividad y habilidades artísticas de los participantes a través de la técnica de la pintura, dibujo, manualidades, etc</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:artes' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>            </div> 
+            </div>
+        </div>
+        <div class="item" style="background-image: url(../static/assets/ajedrez.jpeg);">
+            <div class="fade-content">
+               <div class="content">
+                <div class="name">Ajedrez</div>
+                <div class="des">Desarrollar habilidades estratégicas y de pensamiento crítico a través del juego del ajedrez, promoviendo la concentración y la paciencia</div>
+                <!-- estilo de botón con enlace -->
+                <a href="{% url 'alumno:ajedrez' %}"><button type="button" class="btn btn-outline-light">Ver más</button></a>            </div> 
+            </div>
+        </div>
+    </div>
+    <div class="button">
+        <button class="btn btn-outline-light prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="btn btn-outline-light next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+</div>
+{% comment %} {% block matricula %}{{ login }}{% endblock
+matricula %} {% endcomment %} {% endblock %}

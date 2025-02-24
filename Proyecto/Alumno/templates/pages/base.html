@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block titulo %} {% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/diseño-inicio.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/diseño-club.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/diseño-creditos.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/diseño-historial.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+    {% block styles %}{% endblock styles %}
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="menu">
+      <ion-icon name="menu-outline"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+    <div class="dividir" style="display: flex; height: 100vh">
+      <aside>
+        <div class="barra-lateral">
+          <div>
+            <div class="nombre-pagina">
+              <img
+                id="cloud"
+                src="{% static 'assets/Logo-UTS-2023.png' %}"
+                alt=""
+              />
+              {% if '/alumno/' in request.path %}
+              <span>Mis créditos</span>
+              {% elif '/profesor/' in request.path %}
+              <span>Docente</span>
+              {% elif '/administrador/' in request.path %}
+              <span>Admin</span>
+              {% endif %}
+            </div>
+          </div>
+          <nav class="navegacion">
+            {% if '/alumno/' in request.path %}
+            <ul>
+              <li>
+                <a href="{% url 'alumno:inicio' %}">
+                  <ion-icon name="home-outline"></ion-icon>
+                  <span>Inicio</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'alumno:creditos_actuales'%}">
+                  <ion-icon name="invert-mode-outline"></ion-icon>
+                  <span>Créditos actuales</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'alumno:historial_creditos'%}">
+                  <ion-icon name="clipboard-outline"></ion-icon>
+                  <span>Historial de créditos</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'alumno:actividades_culturales'%}">
+                  <ion-icon name="medal-outline"></ion-icon>
+                  <span>Actividades</span>
+                </a>
+              </li>
+            </ul>
+            {% elif '/profesor/' in request.path%}
+            <ul class="ps-0">
+              <li>
+                <a href="{% url 'profesor:inicio' %}">
+                  <ion-icon name="home-outline"></ion-icon>
+                  <span>Inicio</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'profesor:solicitudes'%}">
+                  <ion-icon name="invert-mode-outline"></ion-icon>
+                  <span>Ver solicitudes</span>
+                </a>
+              </li>
+            </ul>
+            {% elif '/administrador' in request.path%}
+            <ul class="ps-0">
+              <li>
+                <a href="{% url 'administrador:creditos' %}">
+                  <ion-icon name="home-outline"></ion-icon>
+                  <span>Alumnos</span>
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'administrador:carta_laboral'%}">
+                  <ion-icon name="invert-mode-outline"></ion-icon>
+                  <span>Carta laboral</span>
+                </a>
+              </li>
+            </ul>
+            {% endif %}
+          </nav>
+          <div>
+            <!-- <div class="linea"></div> -->
+            <div class="modo-oscuro">
+              <div class="info">
+                <!-- <ion-icon name="moon-outline"></ion-icon>
+                <span>Dark Mode</span> -->
+              </div>
+              <div class="switch">
+                <!-- <div class="base">
+                  <div class="circulo"></div>
+                </div> -->
+              </div>
+            </div>
+
+            <div class="usuario">
+              <img src="{% static 'assets/profile.jpg' %}" alt="" />
+              <div class="info-usuario">
+                <div class="nombre-email">
+                  <span class="nombre">nombre_apellido</span>
+                  <span class="email">{{ login }}</span>
+                </div>
+                <a href="{% url 'login:logout' %}">
+                  <ion-icon name="log-out-outline"></ion-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div
+        class="contenido"
+        style="width: 100vw; height: 100vh; overflow: scroll"
+      >
+        {% block contenido %} {% endblock %}
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- ARCHIVO SCRIPT -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/app-inicio.js' %}"></script>
+    <script src="{% static 'js/app-club.js' %}"></script>
+    <script src="{% static 'js/app-creditos.js' %}"></script>
+    <script src="{% static 'js/app-historial.js' %}"></script>
+    {% block scripts %}{% endblock scripts %}
+  </body>
+</html>

@@ -1,0 +1,73 @@
+{% extends "pages/base.html" %}
+
+{% block titulo %}Créditos{% endblock %}
+
+{% block creditos_activo %} active a-extend {% endblock %}
+
+{% block contenido %}
+
+<link href="../static/style.css" rel="stylesheet" />
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <!-- filtro de clubes -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h5>Filtrar por club</h5>
+                    </div>
+                    <div class="list-group list-group-flush p-3">
+                        <a href="?" class="btn mb-2 {% if not selected_club %}btn-success{% else %}btn-secondary{% endif %}">VER TODOS</a>
+                        <a href="?club=AJEDREZ" class="btn mb-2 {% if selected_club == 'AJEDREZ' %}btn-success{% else %}btn-secondary{% endif %}">AJEDREZ</a>
+                        <a href="?club=RÍTMICA" class="btn mb-2 {% if selected_club == 'RÍTMICA' %}btn-success{% else %}btn-secondary{% endif %}">RÍTMICA</a>
+                        <a href="?club=TAEKWONDO" class="btn mb-2 {% if selected_club == 'TAEKWONDO' %}btn-success{% else %}btn-secondary{% endif %}">TAEKWONDO</a>
+                        <a href="?club=BAILE%20MODERNO" class="btn mb-2 {% if selected_club == 'BAILE MODERNO' %}btn-success{% else %}btn-secondary{% endif %}">BAILE MODERNO</a>
+                        <a href="?club=CARTA%20LABORAL" class="btn {% if selected_club == 'CARTA LABORAL' %}btn-success{% else %}btn-secondary{% endif %}">CARTA LABORAL</a>
+                    </div>    
+                </div>
+            </div>
+
+            <!-- Tabla de créditos -->
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3>{{ selected_club|default:"Todos los alumnos " }}</h3>
+                    <input type="text" class="form-control w-25" placeholder="Buscar alumnos...">
+                </div>
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Matrícula</th>
+                            <th>Nombre</th>
+                            <th>Carrera</th>
+                            <th>Club</th>
+                            <th>Créditos</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for solicitud in solicitudes %}
+                        <tr>
+                            <td>{{ solicitud.solicitud.matricula }}</td>
+                            <td>{{ solicitud.nombre_completo }}</td>
+                            <td>{{ solicitud.grupo}}</td>
+                            <td>{{ "FALTA" }}</td>
+                            <td>{{ "FALTA" }}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">Créditos</button>
+                                <button class="btn btn-danger btn-sm">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5">No hay solicitudes aceptadas para este club.</td> 
+                        </tr>            
+                        {% endfor %}
+                    </tfoot>
+                </table>
+                <button class="btn btn-danger">Eliminar todo</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

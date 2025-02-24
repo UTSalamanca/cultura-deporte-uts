@@ -1,0 +1,69 @@
+<!-- PASAR FORMATO BASE (ASIDE, NAV) -->
+{% extends "./base.html" %}
+
+<!-- ESTABLECER TITULO DE LA PÁGINA -->
+{% block titulo %} Historial de créditos {% endblock %}
+
+<!-- ESTABLECE QUE ELEMENTO ESTA ACTIVO SEGÚN EL APARTADO -->
+{% block historial_activo %} active a-extend {% endblock %}
+
+<!-- CONTENIDO PRINCIPAL -->
+{% block contenido %}
+<div class="container-puntos">
+    <!-- Indicador de Puntos Totales -->
+    <div class="indicador-puntos">
+      <span id="indicador-puntos">0/105</span>
+    </div>
+
+    <!-- Filtro por Cuatrimestres -->
+    <div class="filtro">
+      <div class="dropdown">
+        <button class="dropdown-btn" onclick="toggleDropdown()">Seleccionar Cuatrimestre</button>
+        <div id="dropdown-content" class="dropdown-content">
+          <script>
+            for (let i = 1; i <= 6; i++) {
+              document.write(`
+                <label>
+                  <input type="radio" name="cuatrimestre" value="${i}" onchange="filtrarCuatrimestre()"> Cuatrimestre ${i}
+                </label>
+              `);
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor de semanas -->
+    <div id="tabla-semanas" class="tabla-flex">
+      <script>
+        // Generar tablas para los 6 cuatrimestres (15 semanas cada uno)
+        for (let cuatrimestre = 1; cuatrimestre <= 6; cuatrimestre++) {
+          const maxPuntosPorSemana = cuatrimestre <= 2 ? 2 : 1; // Puntos por semana según el cuatrimestre
+          for (let semana = 1; semana <= 15; semana++) {
+            const puntosSemana = Math.floor(Math.random() * maxPuntosPorSemana) + 1;
+            document.write(`
+              <div class="semana cuatrimestre-${cuatrimestre}" data-cuatrimestre="${cuatrimestre}" data-puntos="${puntosSemana}" style="display: none;">
+                <div class="header">
+                  <span>Semana ${semana}</span>
+                  <span>Puntos: ${puntosSemana}</span>
+                </div>
+                <div class="contenido">
+                  <div class="dias">
+                    <div>L</div><div>M</div><div>M</div><div>J</div><div>V</div>
+                  </div>
+                  <div class="asistencias">
+                    <div>${Math.floor(Math.random() * 2)}</div>
+                    <div>${Math.floor(Math.random() * 2)}</div>
+                    <div>${Math.floor(Math.random() * 2)}</div>
+                    <div>${Math.floor(Math.random() * 2)}</div>
+                    <div>${Math.floor(Math.random() * 2)}</div>
+                  </div>
+                </div>
+              </div>
+            `);
+          }
+        }
+      </script>
+    </div>
+  </div>
+{% endblock %}
